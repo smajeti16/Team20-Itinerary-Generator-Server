@@ -1,1 +1,6 @@
+com/example/myapp/models/Itinerary.class
+com/example/myapp/models/TravelAgent.class
+com/example/myapp/models/User.class
 com/example/myapp/DemoApplication.class
+com/example/myapp/models/Event.class
+com/example/myapp/models/Request.class

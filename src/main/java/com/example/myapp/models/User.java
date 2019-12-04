@@ -1,7 +1,7 @@
 package com.example.myapp.models;
 
 import java.util.List;
-import com.example.myapp.models.Itinerary;
+import com.example.myapp.models.Request;
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +16,9 @@ public class User {
     private String username;
     private String password;
     private String email;
-    // List<Itinerary> itineraries;
+
+    @OneToMany(mappedBy = "user")
+    private List<Itinerary> itineraries;
 
     // User constructor
     public User(int id, String firstName, String lastName, String username, String password, String email) {

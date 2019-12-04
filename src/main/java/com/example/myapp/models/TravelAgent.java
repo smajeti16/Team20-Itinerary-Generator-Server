@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import com.example.myapp.models.Request;
 
 @Entity
 @Table(name = "travel_agent")
@@ -15,8 +17,8 @@ public class TravelAgent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    // private List<Integer> userIds;
-    // private List<Integer> requestIds;
+    @OneToMany(mappedBy = "agent")
+    private List<Request> requests;
 
     // constructor 
 }

@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "request")
 public class Request {
@@ -27,6 +25,15 @@ public class Request {
 
     private TravelAgent getAgent() {
         return agent;
+    }
+
+    // constructor
+    public Request(int id, String location, int duration, int userId) {
+        super();
+        this.id = id;
+        this.location = location;
+        this.duration = duration;
+        this.userId = userId;
     }
 
     public String getLocation() {
@@ -52,8 +59,4 @@ public class Request {
     public void setLocation(String location) {
         this.location = location;
     }
-
-    // private List<Boolean> attractions;
-
-    // constructor 
 }

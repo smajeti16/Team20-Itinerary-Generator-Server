@@ -24,10 +24,20 @@ public class Itinerary {
 
     @ManyToOne
     private User user;
+
+    private User getUser() {
+        return this.user;
+    }
     
     @ManyToMany(mappedBy = "itineraries", cascade = CascadeType.PERSIST)
     private Set<Event> eventMaps = new HashSet<>();
-    
+
     // constructor 
+    public Itinerary(int id, User user, Set<Event> maps) {
+        super();
+        this.id = id;
+        this.user = user;
+        this.eventMaps = maps;
+    }
     
 }

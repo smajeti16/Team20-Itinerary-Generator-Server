@@ -36,4 +36,44 @@ public class Event {
     private float rating;
 
     // constructor 
+    public Event(int id, String title, String pictureURL, String description, float rating) {
+        super();
+        this.id = id;
+        this.setTitle(title);
+        this.setPictureURL(pictureURL);
+        this.setDescription(description);
+        this.setRating(rating);
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

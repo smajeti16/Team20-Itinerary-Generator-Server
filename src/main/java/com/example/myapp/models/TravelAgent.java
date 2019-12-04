@@ -20,5 +20,13 @@ public class TravelAgent {
     @OneToMany(mappedBy = "agent")
     private List<Request> requests;
 
+    private List<Request> getRequests() {
+        return this.requests;
+    }
     // constructor 
+    public TravelAgent(int id, List<Request> requests) {
+        super();
+        this.id = id;
+        this.requests = requests;
+    }
 }

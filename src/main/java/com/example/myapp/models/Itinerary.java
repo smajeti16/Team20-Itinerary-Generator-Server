@@ -32,6 +32,10 @@ public class Itinerary {
     @ManyToMany(mappedBy = "itineraries", cascade = CascadeType.PERSIST)
     private Set<Event> eventMaps = new HashSet<>();
 
+    public Itinerary() {
+        super();
+    }
+
     // constructor 
     public Itinerary(int id, User user, Set<Event> maps) {
         super();

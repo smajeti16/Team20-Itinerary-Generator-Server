@@ -24,6 +24,9 @@ public class User {
         return this.itineraries;
     }
 
+    public User() {
+        super();
+    }
 
     // User constructor
     public User(int id, String firstName, String lastName, String username, String password, String email) {

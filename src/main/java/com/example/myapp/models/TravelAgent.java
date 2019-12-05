@@ -23,6 +23,11 @@ public class TravelAgent {
     private List<Request> getRequests() {
         return this.requests;
     }
+
+    public TravelAgent() {
+        super();
+    }
+
     // constructor 
     public TravelAgent(int id, List<Request> requests) {
         super();

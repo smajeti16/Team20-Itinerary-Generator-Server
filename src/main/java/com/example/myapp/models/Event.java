@@ -36,6 +36,11 @@ public class Event {
     private float rating;
 
     // constructor 
+
+    public Event() {
+        super();
+    }
+    
     public Event(int id, String title, String pictureURL, String description, float rating) {
         super();
         this.id = id;

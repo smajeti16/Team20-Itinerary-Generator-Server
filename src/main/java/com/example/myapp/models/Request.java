@@ -27,6 +27,10 @@ public class Request {
         return agent;
     }
 
+    public Request() {
+        super();
+    }
+
     // constructor
     public Request(int id, String location, int duration, int userId) {
         super();

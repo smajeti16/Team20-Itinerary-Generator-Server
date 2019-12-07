@@ -22,4 +22,32 @@ public class EventController {
         return repository.findAllEvents();
     }
 
+    @GetMapping("/api/events/{eventId}")
+    public Event findEventById(@PathVariable("eventId") Integer eventId) {
+        Optional<Event> optional = repository.findById(eventId);
+        return optional.get();
+    }
+
+    @DeleteMapping("/api/events/{eventId}")
+    public List<Event> deleteEvent(@PathVariable("eventId") Integer eventId) {
+        repository.deleteById(eventId);
+        return this.findAllEvents();
+    }
+
+    @PostMapping("/api/events")
+    public List<Event> createEvent(@RequestBody Event event) {
+        repository.save(event);
+        return this.findAllEvents();
+    }
+
+    @PutMapping("/api/events/{eventId}")
+    public List<Event> updateEvent(
+        @PathVariable("eventId") Integer eventId, 
+        @RequestBody Event eventUpdates) {
+        Optional<Event> optional = repository.findById(eventId);
+        Event event = optional.get();
+        repository.save(event);
+        return this.findAllEvents();
+    }
+
 }

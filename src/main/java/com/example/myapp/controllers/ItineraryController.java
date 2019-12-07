@@ -22,4 +22,32 @@ public class ItineraryController {
         return repository.findAllItineraries();
     }
 
+    @GetMapping("/api/itineraries/{itineraryId}")
+    public Itinerary findItineraryById(@PathVariable("itineraryId") Integer itineraryId) {
+        Optional<Itinerary> optional = repository.findById(itineraryId);
+        return optional.get();
+    }
+
+    @DeleteMapping("/api/itineraries/{itineraryId}")
+    public List<Itinerary> deleteItinerary(@PathVariable("itineraryId") Integer itineraryId) {
+        repository.deleteById(itineraryId);
+        return this.findAllItineraries();
+    }
+
+    @PostMapping("/api/itineraries")
+    public List<Itinerary> createItinerary(@RequestBody Itinerary itinerary) {
+        repository.save(itineraries);
+        return this.findAllItineraries();
+    }
+
+    @PutMapping("/api/itineraries/{itineraryId}")
+    public List<Event> updateItinerary(
+        @PathVariable("itineraryId") Integer itineraryId, 
+        @RequestBody Itinerary itineraryUpdates) {
+        Optional<Itinerary> optional = repository.findById(itineraryId);
+        Itinerary itinerary = optional.get();
+        repository.save(itinerary);
+        return this.findAllItineraries();
+    }
+
 }

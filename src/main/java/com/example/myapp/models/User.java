@@ -1,7 +1,9 @@
 package com.example.myapp.models;
 
+import java.util.HashSet;
 import java.util.List;
-import com.example.myapp.models.Request;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,10 +20,18 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
-    private List<Itinerary> itineraries;
+    private List<Request> requests;
 
-    private List<Itinerary> getItineraries() {
-        return this.itineraries;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
+        name = "User_Itin_Map",
+        joinColumns = {@JoinColumn(name = "user_id")},
+        inverseJoinColumns = {@JoinColumn(name = "itinerary_id")}
+    ) 
+    private Set<Itinerary> itins = new HashSet<>();
+
+    private Set<Itinerary> getItineraries() {
+        return this.itins;
     }
 
     public User() {

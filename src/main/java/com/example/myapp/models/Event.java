@@ -1,9 +1,7 @@
 package com.example.myapp.models;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,19 +26,18 @@ public class Event {
         joinColumns = {@JoinColumn(name = "event_id")},
         inverseJoinColumns = {@JoinColumn(name = "itinerary_id")}
     ) 
-    private Set<Itinerary> itineraries = new HashSet<>();
+    private Set<Itinerary> event_itins = new HashSet<>();
 
     private String title;
     private String pictureURL;
     private String description;
     private float rating;
 
-    // constructor 
-
+    // constructors 
     public Event() {
         super();
     }
-    
+
     public Event(int id, String title, String pictureURL, String description, float rating) {
         super();
         this.id = id;

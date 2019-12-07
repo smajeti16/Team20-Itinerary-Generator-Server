@@ -1,7 +1,5 @@
 package com.example.myapp.models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +16,12 @@ public class Request {
 
     private String location;
     private int duration;
-    private int userId;
 
     @ManyToOne
     private TravelAgent agent;
+
+    @ManyToOne
+    private User user;
 
     private TravelAgent getAgent() {
         return agent;
@@ -32,12 +32,11 @@ public class Request {
     }
 
     // constructor
-    public Request(int id, String location, int duration, int userId) {
+    public Request(int id, String location, int duration) {
         super();
         this.id = id;
         this.location = location;
         this.duration = duration;
-        this.userId = userId;
     }
 
     public String getLocation() {
@@ -50,14 +49,6 @@ public class Request {
 
     public void setDuration(int duration) {
         this.duration = duration;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public void setLocation(String location) {

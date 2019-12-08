@@ -32,19 +32,29 @@ public class Event {
     private String pictureURL;
     private String description;
     private float rating;
+    private int day;
 
     // constructors 
     public Event() {
         super();
     }
 
-    public Event(int id, String title, String pictureURL, String description, float rating) {
+    public Event(int id, String title, String pictureURL, String description, float rating, int day) {
         super();
         this.id = id;
         this.setTitle(title);
         this.setPictureURL(pictureURL);
         this.setDescription(description);
         this.setRating(rating);
+        this.setDay(day);
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
     }
 
     public float getRating() {

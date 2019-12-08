@@ -32,14 +32,14 @@ public class Event {
     private String pictureURL;
     private String description;
     private float rating;
-    private int day;
+    private Integer day;
 
     // constructors 
     public Event() {
         super();
     }
 
-    public Event(int id, String title, String pictureURL, String description, float rating, int day) {
+    public Event(int id, String title, String pictureURL, String description, float rating, Integer day) {
         super();
         this.id = id;
         this.setTitle(title);

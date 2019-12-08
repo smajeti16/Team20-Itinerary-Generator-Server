@@ -3,7 +3,6 @@ package com.example.myapp.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.myapp.models.Event;
 import com.example.myapp.models.Itinerary;
 import com.example.myapp.repositories.ItineraryRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -18,6 +18,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private boolean loggedIn;
 
     @OneToMany(mappedBy = "user")
     private List<Request> requests;
@@ -39,7 +40,7 @@ public class User {
     }
 
     // User constructor
-    public User(int id, String firstName, String lastName, String username, String password, String email) {
+    public User(int id, String firstName, String lastName, String username, String password, String email, boolean loggedIn) {
         super();
         this.id = id;
         this.setFirstName(firstName);
@@ -47,6 +48,7 @@ public class User {
         this.setUsername(username);
         this.setPassword(password);
         this.setEmail(email);
+        this.setLoggedIn(loggedIn);
     }
 
     public String getEmail() {
@@ -87,6 +89,14 @@ public class User {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
     
 }

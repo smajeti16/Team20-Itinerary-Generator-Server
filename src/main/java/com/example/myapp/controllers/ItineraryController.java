@@ -41,19 +41,20 @@ public class ItineraryController {
     }
 
     @PostMapping("/api/itineraries")
-    public List<Itinerary> createItinerary(@RequestBody Itinerary itinerary) {
-        repository.save(itinerary);
-        return this.findAllItineraries();
+    public Itinerary createItinerary(@RequestBody Itinerary itinerary) {
+        return repository.save(itinerary);
     }
 
-    @PutMapping("/api/itineraries/{itineraryId}")
-    public List<Itinerary> updateItinerary(
-        @PathVariable("itineraryId") Integer itineraryId, 
-        @RequestBody Itinerary itineraryUpdates) {
-        Optional<Itinerary> optional = repository.findById(itineraryId);
-        Itinerary itinerary = optional.get();
-        repository.save(itinerary);
-        return this.findAllItineraries();
-    }
+    // @PutMapping("/api/itineraries/{itineraryId}")
+    // public Itinerary updateItinerary(
+    //     @PathVariable("itineraryId") Integer itineraryId, @RequestBody Event eventUpdate, @RequestBody User userFave) {
+    //     Optional<Itinerary> optional = repository.findById(itineraryId);
+    //     Itinerary itinerary = optional.get();
+    //     // itinerary.set(itineraryUpdates);
+    //     itinerary.set(eventUpdate, userFave);
+    //     return repository.save(itinerary);
+    // }
 
 }
+
+// @RequestBody Itinerary itineraryUpdates

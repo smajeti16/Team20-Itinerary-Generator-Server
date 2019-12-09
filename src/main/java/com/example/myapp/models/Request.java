@@ -62,4 +62,13 @@ public class Request {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public void set(Request request) {
+        if (request.getLocation() != null) {
+    		this.setLocation(request.getLocation());
+    	}
+    	if (request.getDuration() != 0) {
+    		this.setDuration(request.getDuration());
+    	}
+    }
 }

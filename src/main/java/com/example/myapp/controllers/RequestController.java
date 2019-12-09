@@ -41,19 +41,17 @@ public class RequestController {
     }
 
     @PostMapping("/api/requests")
-    public List<Request> createRequest(@RequestBody Request request) {
-        repository.save(request);
-        return this.findAllRequests();
+    public Request createRequest(@RequestBody Request request) {
+        return repository.save(request);
     }
 
     @PutMapping("/api/requests/{requestId}")
-    public List<Request> updateRequest(
-        @PathVariable("requestId") Integer requestId, 
-        @RequestBody Request requestUpdates) {
+    public Request updateRequest(
+        @PathVariable("requestId") Integer requestId, @RequestBody Request requestUpdates) {
         Optional<Request> optional = repository.findById(requestId);
         Request request = optional.get();
-        repository.save(request);
-        return this.findAllRequests();
+        request.set(requestUpdates);
+        return repository.save(request);
     }
 
 }

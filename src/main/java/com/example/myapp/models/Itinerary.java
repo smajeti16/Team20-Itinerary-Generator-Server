@@ -47,5 +47,11 @@ public class Itinerary {
     public void setId(int id) {
         this.id = id;
     }
+
+    // public void set(Event eventUpdate, User userFave) {
+    //     if(eventUpdate.getDescription() != null) {
+    //         // this.eventMaps.
+    //     }
+    // }
     
 }

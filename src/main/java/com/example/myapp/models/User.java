@@ -1,5 +1,6 @@
 package com.example.myapp.models;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -52,7 +53,9 @@ public class User {
         this.setPassword(password);
         this.setEmail(email);
         this.setLoggedIn(loggedIn);
-        this.favorites = favorites;
+        if(favorites.equals(null)) {
+            this.favorites = new ArrayList<Itinerary>();
+        }
     }
 
     public int getId() {

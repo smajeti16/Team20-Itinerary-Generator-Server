@@ -67,8 +67,8 @@ public class EventController {
                         @PathVariable("eventId") Integer eventId) {
         Event event = repository.findById(eventId).get();
         Itinerary itinerary = itineraryRepository.findById(itineraryId).get();
-        event.setItinerary(itinerary);
-        repository.save(event); 
+        itinerary.setEvent(event);
+        itineraryRepository.save(itinerary); 
         return itinerary;
     }
 

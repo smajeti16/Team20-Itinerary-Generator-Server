@@ -115,13 +115,5 @@ public class Event {
             this.setTitle(event.getTitle());
     	}
     }
-
-    public void setItinerary(Itinerary newItin) {
-        this.event_itins.add(newItin);
-    }
-
-    public Set<Itinerary> getItineraries() {
-        return this.event_itins;
-    }
     
 }

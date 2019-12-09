@@ -2,6 +2,8 @@ package com.example.myapp.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.myapp.models.Event;
 import com.example.myapp.models.Itinerary;
 import com.example.myapp.repositories.ItineraryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +46,10 @@ public class ItineraryController {
     public Itinerary createItinerary(@RequestBody Itinerary itinerary) {
         return repository.save(itinerary);
     }
+
+    // @GetMapping("/api/itineraries/find/{itineraryId}")
+    // public List<Event> getEventsByItineraryId(@PathVariable("itineraryId") Integer itineraryId) {
+    //     return repository.getEventsByItineraryId(itineraryId); 
+    // }
 
 }

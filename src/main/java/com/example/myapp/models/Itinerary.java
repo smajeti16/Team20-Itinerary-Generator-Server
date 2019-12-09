@@ -17,6 +17,7 @@ import com.example.myapp.models.User;
 @Table(name = "itinerary")
 public class Itinerary {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToMany(mappedBy = "itins", cascade = CascadeType.PERSIST)

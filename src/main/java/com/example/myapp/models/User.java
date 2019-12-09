@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String firstName;
@@ -30,8 +31,6 @@ public class User {
     ) 
     private Set<Itinerary> itins = new HashSet<>();
 
-    private List<Itinerary> favorites;
-
     private Set<Itinerary> getItineraries() {
         return this.itins;
     }
@@ -41,7 +40,7 @@ public class User {
     }
 
     // User constructor
-    public User(int id, String firstName, String lastName, String username, String password, String email, boolean loggedIn, List<Itinerary> favorites) {
+    public User(int id, String firstName, String lastName, String username, String password, String email, boolean loggedIn) {
         super();
         this.id = id;
         this.setFirstName(firstName);
@@ -50,15 +49,6 @@ public class User {
         this.setPassword(password);
         this.setEmail(email);
         this.setLoggedIn(loggedIn);
-        this.favorites = favorites;
-    }
-
-    public List<Itinerary> getFavorites() {
-        return this.favorites;
-    }
-
-    public void setFavorites(List<Itinerary> newFaves) {
-        this.favorites = newFaves;
     }
 
     public int getId() {

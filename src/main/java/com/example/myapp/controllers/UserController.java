@@ -53,12 +53,11 @@ public class UserController {
     }
 
     @PutMapping("/api/users/{userId}")
-    public List<User> updateUser(@PathVariable("userId") Integer userId, @RequestBody User userUpdates) {
+    public User updateUser(@PathVariable("userId") Integer userId, @RequestBody User userUpdates) {
         Optional<User> optional = repository.findById(userId);
         User user = optional.get();
-        user.setPassword(userUpdates.getPassword());
-        repository.save(user);
-        return this.findAllUsers();
+        user.set(userUpdates);
+        return repository.save(user);
     }
 
     @PostMapping("/api/users")

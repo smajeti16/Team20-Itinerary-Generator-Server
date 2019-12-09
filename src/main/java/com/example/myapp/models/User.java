@@ -103,7 +103,7 @@ public class User {
         this.firstName = firstName;
     }
 
-    public boolean isLoggedIn() {
+    public boolean getLoggedIn() {
         return loggedIn;
     }
 
@@ -117,6 +117,30 @@ public class User {
 
     public void setFavorites(List<Itinerary> newFaves) {
         this.favorites = newFaves;
+    }
+    
+    public void set(User user) {
+    	if (user.getFirstName() != null) {
+    		this.setFirstName(user.getFirstName());
+    	}
+    	if (user.getLastName() != null) {
+    		this.setLastName(user.getLastName());
+    	}
+    	if (user.getUsername() != null) {
+            this.setUsername(user.getUsername());
+
+    	}
+    	if (user.getPassword() != null) {
+            this.setPassword(user.getPassword());
+    	}
+    	if (user.getEmail() != null) {
+            this.setEmail(user.getEmail());
+    	}
+        this.setLoggedIn(user.getLoggedIn());
+
+        if (user.getFavorites() != null) {
+            this.setFavorites(user.getFavorites());
+        }
     }
     
 }

@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "request")
 public class Request {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String location;

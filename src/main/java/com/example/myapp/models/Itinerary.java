@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import com.example.myapp.models.User;
 
@@ -25,6 +26,9 @@ public class Itinerary {
 
     @ManyToMany(mappedBy = "event_itins", cascade = CascadeType.PERSIST)
     private Set<Event> eventMaps = new HashSet<>();
+
+    @ManyToOne
+    private User userFaves;
 
     public Itinerary() {
         super();

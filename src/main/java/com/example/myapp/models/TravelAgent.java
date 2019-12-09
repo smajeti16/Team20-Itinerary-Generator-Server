@@ -14,6 +14,7 @@ import com.example.myapp.models.Request;
 @Table(name = "travel_agent")
 public class TravelAgent {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @OneToMany(mappedBy = "agent")

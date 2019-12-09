@@ -62,8 +62,7 @@ public class UserController {
     }
 
     @PostMapping("/api/users")
-    public List<User> createUser(@RequestBody User user) {
-        repository.save(user);
-        return this.findAllUsers();
+    public User createUser(@RequestBody User user) {
+        return repository.save(user);
     }
 }

@@ -41,19 +41,17 @@ public class EventController {
     }
 
     @PostMapping("/api/events")
-    public List<Event> createEvent(@RequestBody Event event) {
-        repository.save(event);
-        return this.findAllEvents();
+    public Event createEvent(@RequestBody Event event) {
+        return repository.save(event);
     }
 
     @PutMapping("/api/events/{eventId}")
-    public List<Event> updateEvent(
-        @PathVariable("eventId") Integer eventId, 
-        @RequestBody Event eventUpdates) {
+    public Event updateEvent(
+        @PathVariable("eventId") Integer eventId, @RequestBody Event eventUpdates) {
         Optional<Event> optional = repository.findById(eventId);
         Event event = optional.get();
-        repository.save(event);
-        return this.findAllEvents();
+        event.set(eventUpdates);
+        return repository.save(event);
     }
 
 }

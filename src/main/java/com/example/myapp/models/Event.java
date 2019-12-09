@@ -96,4 +96,23 @@ public class Event {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public void set(Event event) {
+    	if (event.getDescription() != null) {
+    		this.setDescription(event.getDescription());
+    	}
+    	if (event.getPictureURL() != null) {
+    		this.setPictureURL(event.getPictureURL());
+    	}
+    	if (event.getRating() != 0) {
+            this.setRating(event.getRating());
+
+    	}
+    	if (event.getDay() != 0) {
+            this.setDay(event.getDay());
+    	}
+    	if (event.getTitle() != null) {
+            this.setTitle(event.getTitle());
+    	}
+    }
 }

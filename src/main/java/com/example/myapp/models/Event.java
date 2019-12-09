@@ -49,6 +49,14 @@ public class Event {
         this.setDay(day);
     }
 
+     public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getDay() {
         return day;
     }

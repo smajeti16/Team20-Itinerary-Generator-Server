@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name = "request")
 public class Request {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String location;
@@ -37,6 +36,14 @@ public class Request {
         this.id = id;
         this.location = location;
         this.duration = duration;
+    }
+
+     public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocation() {

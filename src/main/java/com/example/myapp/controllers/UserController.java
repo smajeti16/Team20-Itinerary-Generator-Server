@@ -25,8 +25,9 @@ public class UserController {
 
     @GetMapping("/api/users") 
     public List<User> findAllUsers() {
-        return repository.findAllUsers();
+        return (List<User>) repository.findAll();
     }
+    
 
     @GetMapping("/api/users/username/{username}")
     public User findUserByUsername(@PathVariable("username") String username) {

@@ -14,15 +14,12 @@ import com.example.myapp.models.Request;
 @Table(name = "travel_agent")
 public class TravelAgent {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @OneToMany(mappedBy = "agent")
     private List<Request> requests;
 
-    private List<Request> getRequests() {
-        return this.requests;
-    }
+    
 
     public TravelAgent() {
         super();
@@ -32,6 +29,23 @@ public class TravelAgent {
     public TravelAgent(int id, List<Request> requests) {
         super();
         this.id = id;
+        this.requests = requests;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Request> getRequests() {
+        return this.requests;
+    }
+     
+
+    public void setRequests(List<Request> requests) {
         this.requests = requests;
     }
 }

@@ -17,7 +17,6 @@ import javax.persistence.Table;
 @Table(name = "event")
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToMany(cascade = CascadeType.PERSIST)

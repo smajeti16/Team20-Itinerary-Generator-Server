@@ -45,16 +45,4 @@ public class ItineraryController {
         return repository.save(itinerary);
     }
 
-    // @PutMapping("/api/itineraries/{itineraryId}")
-    // public Itinerary updateItinerary(
-    //     @PathVariable("itineraryId") Integer itineraryId, @RequestBody Event eventUpdate, @RequestBody User userFave) {
-    //     Optional<Itinerary> optional = repository.findById(itineraryId);
-    //     Itinerary itinerary = optional.get();
-    //     // itinerary.set(itineraryUpdates);
-    //     itinerary.set(eventUpdate, userFave);
-    //     return repository.save(itinerary);
-    // }
-
 }
-
-// @RequestBody Itinerary itineraryUpdates

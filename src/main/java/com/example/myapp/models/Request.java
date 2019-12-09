@@ -27,6 +27,10 @@ public class Request {
         return agent;
     }
 
+    public void setAgent(TravelAgent agent) {
+        this.agent = agent;
+    }
+
     public Request() {
         super();
     }

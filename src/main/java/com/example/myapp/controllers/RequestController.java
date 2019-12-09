@@ -3,7 +3,10 @@ package com.example.myapp.controllers;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.myapp.models.Request;
+import com.example.myapp.models.TravelAgent;
 import com.example.myapp.repositories.RequestRepository;
+import com.example.myapp.repositories.TravelAgentRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +24,9 @@ public class RequestController {
     @Autowired
     RequestRepository repository;
 
+    @Autowired
+    TravelAgentRepository agentRepository;
+
     List<Request> requests = new ArrayList<Request>();
 
     @GetMapping("/api/requests") 
@@ -28,7 +34,7 @@ public class RequestController {
         return repository.findAllRequests();
     }
 
-    @GetMapping("/api/requests/{reqeuestId}")
+    @GetMapping("/api/requests/{requestId}")
     public Request findRequestById(@PathVariable("requestId") Integer requestId) {
         Optional<Request> optional = repository.findById(requestId);
         return optional.get();
@@ -52,6 +58,16 @@ public class RequestController {
         Request request = optional.get();
         request.set(requestUpdates);
         return repository.save(request);
+    }
+
+    @GetMapping("/api/add/request/{requestId}/travel_agents/{agentId}")
+    public TravelAgent addRequestToTravelAgent(@PathVariable("agentId") Integer agentId, 
+                            @PathVariable Integer requestId) {
+        Request request = repository.findById(requestId).get();
+        TravelAgent travelAgent = agentRepository.findById(agentId).get();
+        request.setAgent(travelAgent);
+        repository.save(request); 
+        return travelAgent;
     }
 
 }

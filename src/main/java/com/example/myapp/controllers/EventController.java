@@ -2,8 +2,7 @@ package com.example.myapp.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.myapp.models.Event;
-import com.example.myapp.repositories.EventRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
+
+import com.example.myapp.models.Event;
+import com.example.myapp.models.Itinerary;
+import com.example.myapp.repositories.EventRepository;
+import com.example.myapp.repositories.ItineraryRepository;
+
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,6 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventController {
     @Autowired
     EventRepository repository;
+
+    @Autowired
+    ItineraryRepository itineraryRepository;
 
     List<Event> events = new ArrayList<Event>();
 
@@ -52,6 +60,16 @@ public class EventController {
         Event event = optional.get();
         event.set(eventUpdates);
         return repository.save(event);
+    }
+
+    @GetMapping("/api/add/event/{eventId}/itineraries/{itineraryId}")
+    public Itinerary addEventToItinerary(@PathVariable("itineraryId") Integer itineraryId, 
+                        @PathVariable("eventId") Integer eventId) {
+        Event event = repository.findById(eventId).get();
+        Itinerary itinerary = itineraryRepository.findById(itineraryId).get();
+        event.setItinerary(itinerary);
+        repository.save(event); 
+        return itinerary;
     }
 
 }

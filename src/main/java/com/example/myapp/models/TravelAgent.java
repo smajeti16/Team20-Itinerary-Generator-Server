@@ -45,8 +45,8 @@ public class TravelAgent {
         return this.requests;
     }
      
-
     public void setRequests(List<Request> requests) {
         this.requests = requests;
     }
+
 }

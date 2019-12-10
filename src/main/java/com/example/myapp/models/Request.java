@@ -17,6 +17,10 @@ public class Request {
     private String location;
     private int duration;
     private boolean pending;
+    private boolean attractions;
+    private boolean shopping;
+    private boolean food;
+    private boolean nightlife;
 
     @ManyToOne
     private TravelAgent agent;
@@ -37,12 +41,16 @@ public class Request {
     }
 
     // constructor
-    public Request(int id, String location, int duration, boolean pending) {
+    public Request(int id, String location, int duration, boolean pending, boolean attractions, boolean shopping, boolean food, boolean nightlife) {
         super();
         this.id = id;
         this.location = location;
         this.duration = duration;
         this.pending = pending;
+        this.setAttractions(attractions);
+        this.setShopping(shopping);
+        this.setFood(food);
+        this.setNightlife(nightlife);
     }
 
      public int getId() {
@@ -79,6 +87,18 @@ public class Request {
         if (request.getPending() == true || request.getPending() == false) {
             this.setPending(request.getPending());
         }
+        if (request.getAttractions() == true || request.getAttractions() == false) {
+            this.setAttractions(request.getAttractions());
+        }
+        if (request.getShopping() == true || request.getShopping() == false) {
+            this.setShopping(request.getShopping());
+        }
+        if (request.getFood() == true || request.getFood() == false) {
+            this.setFood(request.getFood());
+        }
+        if (request.getNightlife() == true || request.getNightlife() == false) {
+            this.setNightlife(request.getNightlife());
+        }
     }
 
     public void setPending(boolean newPending) {
@@ -87,5 +107,37 @@ public class Request {
 
     public boolean getPending() {
         return this.pending;
+    }
+
+    public boolean getNightlife() {
+        return nightlife;
+    }
+
+    public void setNightlife(boolean nightlife) {
+        this.nightlife = nightlife;
+    }
+
+    public boolean getFood() {
+        return food;
+    }
+
+    public void setFood(boolean food) {
+        this.food = food;
+    }
+
+    public boolean getShopping() {
+        return shopping;
+    }
+
+    public void setShopping(boolean shopping) {
+        this.shopping = shopping;
+    }
+
+    public boolean getAttractions() {
+        return attractions;
+    }
+
+    public void setAttractions(boolean attractions) {
+        this.attractions = attractions;
     }
 }

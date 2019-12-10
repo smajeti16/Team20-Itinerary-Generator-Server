@@ -16,6 +16,7 @@ public class Request {
 
     private String location;
     private int duration;
+    private boolean pending;
 
     @ManyToOne
     private TravelAgent agent;
@@ -36,11 +37,12 @@ public class Request {
     }
 
     // constructor
-    public Request(int id, String location, int duration) {
+    public Request(int id, String location, int duration, boolean pending) {
         super();
         this.id = id;
         this.location = location;
         this.duration = duration;
+        this.pending = pending;
     }
 
      public int getId() {
@@ -73,6 +75,17 @@ public class Request {
     	}
     	if (request.getDuration() != 0) {
     		this.setDuration(request.getDuration());
-    	}
+        }
+        if (request.getPending() == true || request.getPending() == false) {
+            this.setPending(request.getPending());
+        }
+    }
+
+    public void setPending(boolean newPending) {
+        this.pending = newPending;
+    }
+
+    public boolean getPending() {
+        return this.pending;
     }
 }

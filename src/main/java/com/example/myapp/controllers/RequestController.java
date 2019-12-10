@@ -60,7 +60,7 @@ public class RequestController {
         return repository.save(request);
     }
 
-    @GetMapping("/api/add/request/{requestId}/travel_agents/{agentId}")
+    @GetMapping("/api/add/requests/{requestId}/travel_agents/{agentId}")
     public TravelAgent addRequestToTravelAgent(@PathVariable("agentId") Integer agentId, 
                             @PathVariable Integer requestId) {
         Request request = repository.findById(requestId).get();
@@ -68,6 +68,11 @@ public class RequestController {
         request.setAgent(travelAgent);
         repository.save(request); 
         return travelAgent;
+    }
+
+    @GetMapping("/api/requests/pending/{pendingFlag}")
+    public List<Request> findPendingRequests(@PathVariable("pendingFlag") boolean pendingFlag) {
+        return repository.findPendingRequests(pendingFlag);
     }
 
 }

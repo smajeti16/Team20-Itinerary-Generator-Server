@@ -21,6 +21,8 @@ public class Itinerary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private int itin_duration;
+
     @ManyToMany(mappedBy = "itins", cascade = CascadeType.PERSIST)
     private Set<User> userMaps = new HashSet<>();
 
@@ -35,9 +37,10 @@ public class Itinerary {
     }
 
     // constructor 
-    public Itinerary(int id) {
+    public Itinerary(int id, int itin_duration) {
         super();
         this.id = id;
+        this.itin_duration = itin_duration;
     }
 
     public int getId() {
@@ -55,6 +58,14 @@ public class Itinerary {
     // add the new event to the eventMaps HashSet
     public void setEvent(Event event) {
         eventMaps.add(event);
+    }
+
+    public void setItinDuration(int newDuration) {
+        this.itin_duration = newDuration;
+    }
+
+    public int getItinDuration() {
+        return this.itin_duration;
     }
     
 }

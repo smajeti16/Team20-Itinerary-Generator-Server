@@ -75,4 +75,9 @@ public class RequestController {
         return repository.findPendingRequests(pendingFlag);
     }
 
+    @GetMapping("/api/users/{userId}/requests")
+    public List<Request> findRequestsByUserId(@PathVariable("userId") Integer userId) {
+        return repository.findRequestsByUserId(userId);
+    }
+
 }

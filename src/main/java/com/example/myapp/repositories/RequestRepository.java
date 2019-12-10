@@ -14,4 +14,7 @@ public interface RequestRepository extends CrudRepository<Request, Integer> {
 
     @Query("SELECT request FROM Request request WHERE request.pending=:pend")
     public List<Request> findPendingRequests(@PathVariable("pend") boolean pend);
+
+    @Query("SELECT request FROM Request request WHERE request.user.id=:userId")
+    public List<Request> findRequestsByUserId(@PathVariable("userId") Integer userId);
 }
